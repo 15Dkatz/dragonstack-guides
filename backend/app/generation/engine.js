@@ -22,7 +22,7 @@ class GenerationEngine {
       .then(({ generationId }) => {
         this.generation = generation;
 
-        this.generation.id = generationId;
+        this.generation.generationId = generationId;
 
         console.log('new generation', this.generation);
 
