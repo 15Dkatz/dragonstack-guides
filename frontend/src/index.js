@@ -5,6 +5,7 @@ import { render } from 'react-dom';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Root from './components/Root';
+import { fetchAuthenticated } from './actions/account';
 import './index.css';
 
 const store = createStore(
@@ -13,9 +14,12 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
-render(
-  <Provider store={store}>
-    <Root />
-  </Provider>,
-  document.getElementById('root')
-);
+store.dispatch(fetchAuthenticated())
+  .then(() => {
+    render(
+      <Provider store={store}>
+        <Root />
+      </Provider>,
+      document.getElementById('root')
+    );
+  });
