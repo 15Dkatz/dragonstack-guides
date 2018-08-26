@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { render } from 'react-dom';
 import thunk from 'redux-thunk';
 import createBrowserHistory from 'history/createBrowserHistory';
@@ -19,6 +19,16 @@ const store = createStore(
   applyMiddleware(thunk)
 );
 
+const AuthRoute = props => {
+  if (!store.getState().account.loggedIn) {
+    return <Redirect to={{ pathname: '/' }} />
+  }
+
+  const { component, path } = props;
+
+  return <Route poth={path} component={component} />;
+}
+
 store.dispatch(fetchAuthenticated())
   .then(() => {
     render(
@@ -26,7 +36,7 @@ store.dispatch(fetchAuthenticated())
         <Router history={history}>
           <Switch>
             <Route exact path='/' component={Root} />
-            <Route path='/account-dragons' component={AccountDragons} />
+            <AuthRoute path='/account-dragons' component={AccountDragons} />
           </Switch>
         </Router>
       </Provider>,
