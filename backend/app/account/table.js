@@ -45,6 +45,20 @@ class AccountTable {
       )
     });
   }
+
+  static updateBalance({ accountId, value }) {
+    return new Promise((resolve, reject) => {
+      pool.query(
+        'UPDATE account SET balance = balance + $1 WHERE id = $2',
+        [value, accountId],
+        (error, response) => {
+          if (error) return reject(error);
+
+          resolve();
+        }
+      )
+    });
+  }
 }
 
 module.exports = AccountTable;
