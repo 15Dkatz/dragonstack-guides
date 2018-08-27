@@ -4,15 +4,13 @@ import { Provider } from 'react-redux';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { render } from 'react-dom';
 import thunk from 'redux-thunk';
-import createBrowserHistory from 'history/createBrowserHistory';
 import rootReducer from './reducers';
+import history from './history';
 import Root from './components/Root';
 import AccountDragons from './components/AccountDragons';
 import PublicDragons from './components/PublicDragons';
 import { fetchAuthenticated } from './actions/account';
 import './index.css';
-
-const history = createBrowserHistory();
 
 const store = createStore(
   rootReducer,
