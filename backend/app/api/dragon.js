@@ -14,10 +14,14 @@ router.get('/new', (req, res, next) => {
 
       dragon = req.app.locals.engine.generation.newDragon();
 
+      console.log('dragon to store', dragon);
+
       return DragonTable.storeDragon(dragon);
     })
     .then(({ dragonId }) => {
       dragon.dragonId = dragonId;
+
+      console.log('resolved dragonId', dragonId);
 
       return AccountDragonTable.storeAccountDragon({ accountId, dragonId });
     })
@@ -26,9 +30,9 @@ router.get('/new', (req, res, next) => {
 });
 
 router.put('/update', (req, res, next) => {
-  const { dragonId, nickname } = req.body;
+  const { dragonId, nickname, isPublic, saleValue } = req.body;
 
-  DragonTable.updateDragon({ dragonId, nickname })
+  DragonTable.updateDragon({ dragonId, nickname, isPublic, saleValue })
     .then(() => res.json({ message: 'successfully updated dragon' }))
     .catch(error => next(error));
 });
