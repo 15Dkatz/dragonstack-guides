@@ -15,9 +15,7 @@ router.get('/new', (req, res, next) => {
     .then(({ account }) => {
       accountId = account.id;
 
-      dragon = req.app.locals.engine.generation.newDragon();
-
-      console.log('dragon to store', dragon);
+      dragon = req.app.locals.engine.generation.newDragon({ accountId });
 
       return DragonTable.storeDragon(dragon);
     })
