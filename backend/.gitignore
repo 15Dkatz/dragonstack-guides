@@ -1,2 +1,2 @@
-secrets/
 node_modules/
+##CONSIDER_IGNORING: secrets/
