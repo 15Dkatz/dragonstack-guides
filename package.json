@@ -1,0 +1,26 @@
+{
+  "name": "dragonstack",
+  "version": "1.0.0",
+  "description": "The experimentation code for the *Master Full-Stack Development | Node, SQL, React, and More* course on Udemy by David Joseph Katz.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nf start",
+    "backend": "nodemon backend/bin/server",
+    "frontend": "parcel frontend/src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/15Dkatz/dragonstack-scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/15Dkatz/dragonstack-scripts/issues"
+  },
+  "homepage": "https://github.com/15Dkatz/dragonstack-scripts#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
