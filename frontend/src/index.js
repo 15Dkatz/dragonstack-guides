@@ -25,7 +25,7 @@ const AuthRoute = props => {
 
   const { component, path } = props;
 
-  return <Route poth={path} component={component} />;
+  return <Route path={path} component={component} />;
 }
 
 store.dispatch(fetchAuthenticated())
