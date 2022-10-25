@@ -1,0 +1,28 @@
+version: '3'
+
+services: 
+  dragonstackdb:
+    image: postgres:14-alpine
+    container_name: dragonstackdb
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./backend/bin/sql/account.sql:/docker-entrypoint-initdb.d/1.sql
+      - ./backend/bin/sql/generation.sql:/docker-entrypoint-initdb.d/2.sql
+      - ./backend/bin/sql/dragon.sql:/docker-entrypoint-initdb.d/3.sql
+      - ./backend/bin/sql/trait.sql:/docker-entrypoint-initdb.d/4.sql
+      - ./backend/bin/sql/dragonTrait.sql:/docker-entrypoint-initdb.d/5.sql
+      - ./backend/bin/sql/accountDragon.sql:/docker-entrypoint-initdb.d/6.sql
+    ports:
+      - '5432:5432'
+    restart: on-failure:10
+    environment:
+      POSTGRES_DB: dragonstackdb
+      POSTGRES_USER: node_user
+      POSTGRES_PASSWORD: node_password
+      TZ: 'UTC+1'
+      PGTZ: 'UTC+1'
+
+networks:
+  default:
+    name: dragonsnet
+    
