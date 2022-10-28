@@ -7,21 +7,21 @@
     "start": "node ./bin/server",
     "dev": "nodemon ./bin/server",
     "configure-dev": "npm run configure && npm run dev",
-    "configure": "./bin/configure_db.sh"
+    "configure": "node ./bin/insertTraits.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.17.5"
+    "nodemon": "^1.19.4"
   },
   "dependencies": {
     "base-64": "^0.1.0",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.3",
-    "cors": "^2.8.4",
-    "crypto-js": "^3.1.9-1",
-    "express": "^4.16.3",
-    "pg": "^7.4.3",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto-js": "^3.3.0",
+    "express": "^4.18.2",
+    "pg": "^7.18.2",
     "uuid": "^3.3.2"
   }
 }
