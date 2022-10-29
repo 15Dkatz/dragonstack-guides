@@ -13,12 +13,9 @@ router.post('/signup', (req, res, next) => {
   const usernameHash = hash(username);
   const passwordHash = hash(password);
 
-  console.log("account request signup with username: %s  password: %s", username, password);
-
   AccountTable.getAccount({ usernameHash })
     .then(({ account }) => { 
       if (!account) {
-        console.log("storing account in DB with usernameHash: %s  passHash: %s", usernameHash,passwordHash);
         return AccountTable.storeAccount({ usernameHash, passwordHash })
       } else {
         const error = new Error('This username has already been taken');
@@ -29,7 +26,6 @@ router.post('/signup', (req, res, next) => {
       }
     })
     .then(() => {
-      console.log("setting session with username: %s  res: %s", username,res);
       return setSession({ username, res });
     })
     .then(({ message }) => res.json({ message }))

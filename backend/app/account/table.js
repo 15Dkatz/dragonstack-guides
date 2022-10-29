@@ -19,7 +19,6 @@ class AccountTable {
 
   static getAccount({ usernameHash }) {
     return new Promise((resolve, reject) => {
-      console.log("getting account with user hash %s",usernameHash);
       pool.query(
         `SELECT id, "passwordHash", "sessionId", balance FROM account
          WHERE "usernameHash" = $1`,
