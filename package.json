@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nf start",
+    "start": "concurrently --kill-others \"npm run backend\" \"npm run frontend\"",
     "backend": "nodemon backend/bin/server",
     "frontend": "parcel frontend/src/index.html"
   },
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/15Dkatz/dragonstack-scripts#readme",
   "devDependencies": {
-    "nf": "^0.0.3",
+    "concurrently": "^7.5.0",
     "nodemon": "^1.19.4",
     "process": "^0.11.10"
   }
