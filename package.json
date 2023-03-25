@@ -24,9 +24,9 @@
   },
   "homepage": "https://github.com/15Dkatz/dragonstack-scripts#readme",
   "devDependencies": {
-    "concurrently": "^7.5.0",
+    "concurrently": "^7.6.0",
     "nodemon": "^1.19.4",
-    "parcel": "^2.7.0",
+    "parcel": "^2.8.3",
     "process": "^0.11.10"
   }
 }

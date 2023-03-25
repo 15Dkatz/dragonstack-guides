@@ -17,8 +17,8 @@ services:
     restart: on-failure:10
     environment:
       POSTGRES_DB: dragonstackdb
-      POSTGRES_USER: node_user
-      POSTGRES_PASSWORD: node_password
+      POSTGRES_USER: d_user
+      POSTGRES_PASSWORD: d_pass
       TZ: 'UTC+1'
       PGTZ: 'UTC+1'
 
